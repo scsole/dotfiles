@@ -2,6 +2,8 @@
 # ~/.bash_aliases
 #
 
+alias sudo='sudo '
+
 alias ls='ls --color=auto'
 alias l='ls -l'
 alias la='ls -lA'
