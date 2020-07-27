@@ -10,13 +10,16 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
-set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-# Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
+# Application launcher
+set $uifont "Ubuntu 10"
+set $menu bemenu-run --fn $font -p "▶" | xargs swaymsg exec
 
-# Colours
-set $lockscreencolor 000000
+# Use a symlink to set the wallpaper
+set $wallpaper ~/.config/sway/wallpaper
+
+# Lockscreen command
+set $lockscreen swaylock -f -i $wallpaper
 
 ### Gaps
 # Remove window borders

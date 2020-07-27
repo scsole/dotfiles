@@ -5,11 +5,13 @@
 
 # Status command
 set $status echo "$(upower --show-info $(upower --enumerate | grep 'BAT') | grep percentage | awk '{print $2}') \| $(date +'%a %Y-%m-%d %H:%M:%S')"
+#set $status echo "$(date +'%a %Y-%m-%d %H:%M:%S')"
 
 # Sway bar config
 bar {
     position top
     status_command while $status; do sleep 1; done
+    font $font
 
     colors {
         statusline #ffffff
