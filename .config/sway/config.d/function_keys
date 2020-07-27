@@ -1,0 +1,23 @@
+#
+# SwayWM function keys config
+#
+
+# Audio
+bindsym --locked XF86AudioRaiseVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
+bindsym --locked XF86AudioLowerVolume exec pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
+bindsym --locked XF86AudioMute exec pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
+bindsym --locked XF86AudioMicMute exec pactl set-source-mute $(pacmd list-sources |awk '/* index:/{print $3}') toggle
+
+# Multimedia
+bindsym --locked XF86AudioPlay exec playerctl play-pause
+bindsym --locked XF86AudioStop exec playerctl stop
+bindsym --locked XF86AudioNext exec playerctl next
+bindsym --locked XF86AudioPrev exec playerctl previous
+
+# Backlight
+bindsym --locked XF86MonBrightnessUp exec light -A 5
+bindsym --locked XF86MonBrightnessDown exec light -U 5
+
+# Screenshot
+bindsym Print exec grim ~/Pictures/$(date '+%Y-%m-%d-%T')-screenshot.png
+bindsym $mod+Shift+S exec grim -g "$(slurp)" ~/Pictures/$(date '+%Y-%m-%d-%T')-screenshot.png

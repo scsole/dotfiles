@@ -1,5 +1,5 @@
 #
-# Sway config
+# SwayWM config
 #
 # Read `man 5 sway` for a complete reference.
 
@@ -12,39 +12,21 @@ set $right l
 set $term alacritty
 set $menu dmenu_path | dmenu | xargs swaymsg exec --
 
-### Output configuration
-#
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
-output * adaptive_sync on
+set $wallpaper /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png
 
-### Idle configuration
-exec swayidle -w \
-    timeout 300 'swaylock -f -c 000000' \
-    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock -f -c 000000'
-# This will lock your screen after 300 seconds of inactivity, then turn off
-# your displays after another 300 seconds, and turn your screens back on when
-# resumed. It will also lock your screen before your computer goes to sleep.
+# Colours
+set $lockscreencolor 000000
 
-### Input configuration
-input type:touchpad {
-    tap enabled
-    natural_scroll enabled
-    pointer_accel 0.2
-}
-input type:mouse {
-    accel_profile flat
-    pointer_accel 0.1
-}
+### Gaps
+# Remove window borders
+default_border none
 
-### Key bindings
+# Gap dimensions
+gaps inner 5
+gaps outer 1
+
+### Default key bindings
 #
 # Basics:
 #
@@ -70,22 +52,6 @@ input type:mouse {
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
 
-#
-# Function keys:
-#
-    # Multimedia
-    bindsym --locked XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') +5%
-    bindsym --locked XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume $(pacmd list-sinks |awk '/* index:/{print $3}') -5%
-    bindsym --locked XF86AudioMute exec --no-startup-id pactl set-sink-mute $(pacmd list-sinks |awk '/* index:/{print $3}') toggle
-    bindsym --locked XF86AudioMicMute exec --no-startup-id pactl set-source-mute $(pacmd list-sources |awk '/* index:/{print $3}') toggle
-    bindsym --locked XF86AudioPlay exec playerctl play-pause
-    bindsym --locked XF86AudioStop exec playerctl stop
-    bindsym --locked XF86AudioNext exec playerctl next
-    bindsym --locked XF86AudioPrev exec playerctl previous
-
-    # Brightness controls
-    bindsym --locked XF86MonBrightnessUp exec --no-startup-id light -A 5
-    bindsym --locked XF86MonBrightnessDown exec --no-startup-id light -U 5
 #
 # Moving around:
 #
@@ -193,22 +159,5 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
-bar {
-    position top
-
-    # When the status_command prints a new line to stdout, swaybar updates.
-    # The default just shows the current date and time.
-    status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-    colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
-    }
-}
-
 include /etc/sway/config.d/*
+include ~/.config/sway/config.d/*
