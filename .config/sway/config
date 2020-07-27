@@ -3,6 +3,10 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# Start services
+exec waybar
+exec gammastep
+
 ### Variables
 set $mod Mod4
 set $left h
