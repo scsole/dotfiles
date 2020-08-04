@@ -6,6 +6,7 @@
 # Start services
 exec waybar
 exec gammastep
+exec ~/Applications/pcloud
 
 ### Variables
 set $mod Mod4
