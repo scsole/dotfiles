@@ -5,7 +5,7 @@
 
 # Start services
 exec waybar
-exec gammastep
+exec gammastep-indicator
 exec ~/.local/bin/pcloud
 
 ### Variables

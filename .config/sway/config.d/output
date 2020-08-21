@@ -3,9 +3,12 @@
 #
 # You can get the names of your outputs by running: swaymsg -t get_outputs
 
-# Wallpaper
+# Common wallpaper
 output * bg $wallpaper fill
 
 # Enable VRR on all compatible displays
 output * adaptive_sync on
 
+# Configure multimonitor setups
+# output DP-1 pos 0 0
+# output DP-2 pos 2560 0 bg $wallpaper-2 fill
