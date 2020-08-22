@@ -10,5 +10,5 @@ output * bg $wallpaper fill
 output * adaptive_sync on
 
 # Configure multimonitor setups
-output DP-1 pos 0 0
-output DP-2 pos 2560 0 bg $wallpaper-2 fill
+# output DP-1 pos 0 0
+# output DP-2 pos 2560 0 bg $wallpaper-2 fill
