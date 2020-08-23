@@ -24,7 +24,7 @@ set $menu 'bemenu-run --fn $font -p "▶" | xargs swaymsg exec'
 set $wallpaper ~/.config/sway/wallpaper
 
 # Lockscreen command
-set $lockscreen 'sway-lock.sh'
+set $lockscreen '~/scripts/sway-lock.sh'
 
 ### Gaps
 # Remove window borders
