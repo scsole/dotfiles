@@ -17,14 +17,13 @@ set $right l
 set $term alacritty
 
 # Application launcher
-set $uifont "Ubuntu 10"
-set $menu 'bemenu-run --fn $font -p "▶" | xargs swaymsg exec'
+set $menu wofi --show run
 
 # Use a symlink to set the wallpaper
 set $wallpaper ~/.config/sway/wallpaper
 
 # Lockscreen command
-set $lockscreen '~/scripts/sway-lock.sh'
+set $lockscreen ~/scripts/sway-lock.sh
 
 ### Gaps
 # Remove window borders
