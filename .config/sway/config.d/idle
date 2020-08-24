@@ -2,13 +2,16 @@
 # SwayWM idle config
 #
 
-# Lock screen after 300 seconds of inactivity, turn off displays after
-# another 300 seconds and turn them back on when resumed. Also lock the
-# screen before sleeping.
+# Lock after 5 min, displays off after 10 min, lock before suspend
 exec swayidle -w \
     timeout 300 $lockscreen \
-    timeout 600 'swaymsg "output * dpms off"' resume 'swaymsg "output * dpms on"' \
-    before-sleep $lockscreen
+    timeout 600 'swaymsg "output * dpms off"' \
+            resume 'swaymsg "output * dpms on"' \
+    before-sleep $lockscreen 
+
+# Inhibit Idle if a window is fullscreen
+for_window [class="^.*"] inhibit_idle fullscreen
+for_window [app_id="^.*"] inhibit_idle fullscreen
 
 # Lock the screen
 bindsym $mod+Shift+x exec $lockscreen
