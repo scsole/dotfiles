@@ -8,7 +8,7 @@
 
 IMAGE=/tmp/swaylock.png
 LOCK=~/stow/bin/assets/stop.png
-LOCKARGS=""
+LOCKARGS="--daemonize"
 
 for OUTPUT in `swaymsg -t get_outputs | jq -r '.[] | select(.active == true) | .name'`
 do
