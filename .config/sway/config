@@ -17,7 +17,7 @@ set $right l
 set $term alacritty
 
 # Application launcher
-set $menu wofi --show run
+set $menu wofi
 
 # Use a symlink to set the wallpaper
 set $wallpaper ~/.config/sway/wallpaper
