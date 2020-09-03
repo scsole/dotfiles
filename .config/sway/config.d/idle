@@ -2,12 +2,16 @@
 # SwayWM idle config
 #
 
-# Lock after 5 min, displays off after 10 min, lock before suspend
+# Lockscreen command
+# Requres: swaylock-effects-git
+set $lockscreen 'swaylock --daemonize --screenshots --clock --indicator --indicator-radius 75 --indicator-thickness 7 --grace 15 --effect-blur 7x5 --effect-vignette 0.5:0.5 --fade-in 0.2'
+set $lock_immediately 'swaylock --daemonize --screenshots --clock --indicator --indicator-radius 75 --indicator-thickness 7 --effect-blur 7x5 --effect-vignette 0.5:0.5'
+
+# Lock after 10 min, suspend after 11 min and lock on suspend
 exec swayidle -w \
-    timeout 300 $lockscreen \
-    timeout 600 'swaymsg "output * dpms off"' \
-            resume 'swaymsg "output * dpms on"' \
-    before-sleep $lockscreen 
+    timeout 600 $lockscreen \
+    timeout 660 'systemctl suspend' \
+    before-sleep $lock_immediately
 
 # Inhibit Idle if a window is fullscreen
 for_window [class="^.*"] inhibit_idle fullscreen

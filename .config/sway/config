@@ -5,7 +5,7 @@
 
 # Start services
 exec waybar
-exec gammastep -l -45.88:170.50
+exec gammastep -l -45.86:170.50
 exec ~/.local/bin/pcloud
 
 ### Variables
@@ -21,9 +21,6 @@ set $menu wofi
 
 # Use a symlink to set the wallpaper
 set $wallpaper ~/.config/sway/wallpaper
-
-# Lockscreen command
-set $lockscreen ~/scripts/sway-lock.sh
 
 ### Gaps
 # Remove window borders
