@@ -19,3 +19,6 @@ if [ -n "$DESKTOP_SESSION" ];then
 fi
 
 export GPG_TTY=$(tty)
+
+# Sipeed license for Gowin tools
+export LM_LICENSE_FILE=27020@45.33.107.56
