@@ -157,7 +157,7 @@
       {{- if eq .chezmoi.hostname "mercuryfedora" }}
       "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
       {{- else if eq .chezmoi.hostname "zeusfedora" }}
-      "hwmon-path": "/sys/class/hwmon/hwmon4/temp1_input",
+      "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
       {{- end }}
       "critical-threshold": 75,
       "interval": 5,
