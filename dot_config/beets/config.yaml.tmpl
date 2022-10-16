@@ -1,0 +1,39 @@
+{{- if eq .chezmoi.hostname "mercury" }}
+directory: ~/Music/library
+{{- else if eq .chezmoi.hostname "zeus" }}
+directory: /mnt/data1/music/library
+{{- end }}
+library: ~/Music/library.db
+
+import:
+  move: true
+  write: true
+  languages: en
+
+plugins: zero scrub fetchart embedart replaygain convert
+
+zero:
+  auto: true
+  fields: images
+
+scrub:
+  auto: true
+
+fetchart:
+  auto: true
+  sources: filesystem itunes coverart amazon albumart
+  high_resolution: true
+
+embedart:
+  auto: false
+
+replaygain:
+  auto: false
+  backend: ffmpeg
+
+convert:
+  auto: false
+  dest: /mnt/data/Music/converted
+  formats:
+    opus:
+      command: ffmpeg -i $source -y -c:a libopus -b:a 192k $dest
