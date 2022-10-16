@@ -154,9 +154,9 @@
     //},
 
     "temperature": {
-      {{- if eq .chezmoi.hostname "mercuryfedora" }}
+      {{- if eq .chezmoi.hostname "mercury" }}
       "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
-      {{- else if eq .chezmoi.hostname "zeusfedora" }}
+      {{- else if eq .chezmoi.hostname "zeus" }}
       "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
       {{- end }}
       "critical-threshold": 75,
