@@ -240,9 +240,9 @@ include /etc/sway/config.d/*
 #
 # Auto launch
 #
-exec wlsunset -l -45.8 -L 170.5
-exec pcloud
-
-set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
-exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
-exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+# exec wlsunset -l -45.8 -L 170.5
+# exec pcloud
+# 
+# set $WOBSOCK $XDG_RUNTIME_DIR/wob.sock
+# exec mkfifo $WOBSOCK && tail -f $WOBSOCK | wob
+# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
