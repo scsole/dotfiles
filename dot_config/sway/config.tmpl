@@ -66,9 +66,12 @@ input type:touchpad {
 input type:pointer {
     accel_profile flat
 }
-input type:keyboard {
-    xkb_numlock enable
-}
+# https://bugzilla.mozilla.org/show_bug.cgi?id=1652820
+# Use keyboard identifier instead of type
+# swaymsg -t get_inputs | jq -r '.[].identifier' | grep -i keyboard
+# input type:keyboard {
+#     xkb_numlock enable
+# }
 
 ### Key bindings
 #
