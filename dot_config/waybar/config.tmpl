@@ -156,7 +156,7 @@
     "temperature": {
       {{- if eq .chezmoi.hostname "mercury" }}
       "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
-      {{- else if eq .chezmoi.hostname "zeus" }}
+      {{- else if eq .chezmoi.hostname "argon" }}
       "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
       {{- end }}
       "critical-threshold": 75,
