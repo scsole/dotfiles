@@ -24,4 +24,6 @@ if [ -d ~/.bashrc.d ]; then
 	done
 fi
 
+export VDPAU_DRIVER=radeonsi
+
 unset rc
