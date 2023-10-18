@@ -1,8 +1,4 @@
-{{- if eq .chezmoi.hostname "mercury" }}
 directory: ~/Music/library
-{{- else if eq .chezmoi.hostname "zeus" }}
-directory: /mnt/data1/music/library
-{{- end }}
 library: ~/Music/library.db
 
 import:

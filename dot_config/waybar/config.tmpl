@@ -154,9 +154,9 @@
     //},
 
     "temperature": {
-      {{- if eq .chezmoi.hostname "mercury" }}
+      {{- if eq .chezmoi.hostname "laptop" }}
       "hwmon-path": "/sys/class/hwmon/hwmon6/temp1_input",
-      {{- else if eq .chezmoi.hostname "argon" }}
+      {{- else if eq .chezmoi.hostname "workstation" }}
       "hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
       {{- end }}
       "critical-threshold": 75,
